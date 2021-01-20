@@ -1,11 +1,11 @@
 # CuisineDiaryApi
 This the service layer responsible for all the business logic
 
-#Build the application
+# Build the application
 mvn clean package
 docker build -t cuisinediaryapi:1 .
 
-#Run the application
+# Run the application
 docker run -p 9004:9004 -v <location in your computer where you want to see the logs>:/usr/app/logs cuisinediaryapi:1
 Example:
 docker run -p 9004:9004 -v /c/Users/24171/learnWithFun/CuisineDiaryApi/logs/:/usr/app/logs cuisinediaryapi:1
