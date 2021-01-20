@@ -1,0 +1,4 @@
+2021-01-17 21:56:35 [main] INFO  r.h.p.C.CuisineDiaryApiApplicationTests - Starting CuisineDiaryApiApplicationTests on WX24171BB with PID 917 (started by gubbaraviteja in /c/Users/24171/learnWithFun/CuisineDiaryApi)
+2021-01-17 21:56:35 [main] DEBUG r.h.p.C.CuisineDiaryApiApplicationTests - Running with Spring Boot v2.1.2.RELEASE, Spring v5.1.4.RELEASE
+2021-01-17 21:56:35 [main] INFO  r.h.p.C.CuisineDiaryApiApplicationTests - No active profile set, falling back to default profiles: default
+2021-01-17 21:56:44 [main] INFO  r.h.p.C.CuisineDiaryApiApplicationTests - Started CuisineDiaryApiApplicationTests in 9.049 seconds (JVM running for 10.564)
