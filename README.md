@@ -7,7 +7,7 @@ mvn clean package
 docker build -t cuisinediaryapi:1 .
 
 # Run the application
-docker run -p 9004:9004 -v <location in your computer where you want to see the logs>:/usr/app/logs cuisinediaryapi:1
+docker run -p 9004:9004 -v \<location in your computer where you want to see the logs\>:/usr/app/logs cuisinediaryapi:1
   
 Example:
 
