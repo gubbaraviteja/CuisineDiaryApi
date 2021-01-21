@@ -12,7 +12,7 @@ Example:
 
 <code>docker run -p 9004:9004 -v /c/Users/24171/learnWithFun/CuisineDiaryApi/logs/:/usr/app/logs cuisinediaryapi:1</code>
 
-###Available Operations
+### Available Operations
 
 - saveRecipe
 - getRecipes
