@@ -21,7 +21,7 @@
 
     </appender>
 
-    <logger name="ravi.hobby.project.CuisineDiaryApi" level="debug" additivity="false">
+    <logger name="ravi.hobby.project.cda" level="debug" additivity="false">
         <appender-ref ref="FILE-AUDIT"/>
     </logger>
 

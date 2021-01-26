@@ -1,12 +1,12 @@
-package ravi.hobby.project.CuisineDiaryApi.service;
+package ravi.hobby.project.cda.service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import ravi.hobby.project.CuisineDiaryApi.model.Recipe;
-import ravi.hobby.project.CuisineDiaryApi.repository.RecipeRepository;
+import ravi.hobby.project.cda.model.Recipe;
+import ravi.hobby.project.cda.repository.RecipeRepository;
 
 @Service
 public class RecipeService {

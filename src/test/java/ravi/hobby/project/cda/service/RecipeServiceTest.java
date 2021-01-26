@@ -1,4 +1,4 @@
-package ravi.hobby.project.CuisineDiaryApi.service;
+package ravi.hobby.project.cda.service;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -7,7 +7,8 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import ravi.hobby.project.CuisineDiaryApi.model.Recipe;
+import ravi.hobby.project.cda.model.Ingredient;
+import ravi.hobby.project.cda.model.Recipe;
 
 @SpringBootTest
 class RecipeServiceTest {
@@ -17,9 +18,9 @@ class RecipeServiceTest {
 
     @Test
     void saveRecipe() {
-        Recipe recipe = recipeService.saveRecipe(new Recipe("testRecipe1", "testIngredients", "", "", ""));
+        Recipe recipe = recipeService.saveRecipe(new Recipe("testRecipe1", List.of(new Ingredient("testIngredients")), "", "", ""));
         assertEquals("testRecipe1", recipe.getName());
-        assertEquals("testIngredients", recipe.getIngredients());
+        assertEquals(1, recipe.getIngredients().size());
         assertEquals("", recipe.getNotes());
         assertEquals("", recipe.getServing());
         assertEquals("", recipe.getRefs());
@@ -27,7 +28,7 @@ class RecipeServiceTest {
 
     @Test
     void getRecipes() {
-        recipeService.saveRecipe(new Recipe("testRecipe2", "testIngredients", "", "", ""));
+        recipeService.saveRecipe(new Recipe("testRecipe2", List.of(new Ingredient("testIngredients")), "", "", ""));
         List<Recipe> recipes = recipeService.getRecipies();
         assertTrue(recipes.size() >= 1);
         assertTrue(recipes.stream().anyMatch(recipe1 -> recipe1.getName().equals("testRecipe2")));

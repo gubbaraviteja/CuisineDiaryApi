@@ -1,5 +1,7 @@
-package ravi.hobby.project.CuisineDiaryApi.model;
+package ravi.hobby.project.cda.model;
 
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.*;
 
 @Entity
@@ -11,8 +13,8 @@ public class Recipe {
     @Column(nullable = false)
     private String name;
 
-    @Column
-    private String ingredients;   //TODO: Create separate entity named Ingredient and associate to Recipe
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<Ingredient> ingredients = new ArrayList<>();
 
     @Column
     private String notes;
@@ -26,7 +28,7 @@ public class Recipe {
     public Recipe() {
     }
 
-    public Recipe(String name, String ingredients, String notes, String serving, String refs) {
+    public Recipe(String name, List<Ingredient> ingredients, String notes, String serving, String refs) {
         super();
         this.name = name;
         this.ingredients = ingredients;
@@ -51,11 +53,11 @@ public class Recipe {
         this.name = name;
     }
 
-    public String getIngredients() {
+    public List<Ingredient> getIngredients() {
         return ingredients;
     }
 
-    public void setIngredients(String ingredients) {
+    public void setIngredients(List<Ingredient> ingredients) {
         this.ingredients = ingredients;
     }
 

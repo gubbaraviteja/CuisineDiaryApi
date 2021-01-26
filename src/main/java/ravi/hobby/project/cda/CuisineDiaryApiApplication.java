@@ -1,4 +1,4 @@
-package ravi.hobby.project.CuisineDiaryApi;
+package ravi.hobby.project.cda;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
