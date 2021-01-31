@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.*;
 
+@Table(name = "recipe")
 @Entity
 public class Recipe {
     @Id
@@ -13,15 +14,14 @@ public class Recipe {
     @Column(nullable = false)
     private String name;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(
+            mappedBy = "recipe",
+            cascade = CascadeType.ALL)
     private List<Ingredient> ingredients = new ArrayList<>();
-
     @Column
     private String notes;
-
     @Column
     private String serving;
-
     @Column
     private String refs;
 
@@ -35,6 +35,16 @@ public class Recipe {
         this.notes = notes;
         this.serving = serving;
         this.refs = refs;
+    }
+
+    public void addIngredient(Ingredient ingredient) {
+        ingredients.add(ingredient);
+        ingredient.setRecipe(this);
+    }
+
+    public void removeIngredient(Ingredient ingredient) {
+        ingredients.remove(ingredient);
+        ingredient.setRecipe(null);
     }
 
     public long getId() {
@@ -55,10 +65,6 @@ public class Recipe {
 
     public List<Ingredient> getIngredients() {
         return ingredients;
-    }
-
-    public void setIngredients(List<Ingredient> ingredients) {
-        this.ingredients = ingredients;
     }
 
     public String getNotes() {

@@ -11,14 +11,14 @@ import ravi.hobby.project.cda.model.Ingredient;
 import ravi.hobby.project.cda.model.Recipe;
 
 @SpringBootTest
-class RecipeServiceTest {
+class RecipeServiceImplTest {
 
     @Autowired
-    private RecipeService recipeService;
+    private RecipeService RecipeService;
 
     @Test
     void saveRecipe() {
-        Recipe recipe = recipeService.saveRecipe(new Recipe("testRecipe1", List.of(new Ingredient("testIngredients")), "", "", ""));
+        Recipe recipe = RecipeService.saveRecipe(new Recipe("testRecipe1", List.of(new Ingredient("testIngredients")), "", "", ""));
         assertEquals("testRecipe1", recipe.getName());
         assertEquals(1, recipe.getIngredients().size());
         assertEquals("", recipe.getNotes());
@@ -28,8 +28,8 @@ class RecipeServiceTest {
 
     @Test
     void getRecipes() {
-        recipeService.saveRecipe(new Recipe("testRecipe2", List.of(new Ingredient("testIngredients")), "", "", ""));
-        List<Recipe> recipes = recipeService.getRecipies();
+        RecipeService.saveRecipe(new Recipe("testRecipe2", List.of(new Ingredient("testIngredients")), "", "", ""));
+        List<Recipe> recipes = RecipeService.getRecipes();
         assertTrue(recipes.size() >= 1);
         assertTrue(recipes.stream().anyMatch(recipe1 -> recipe1.getName().equals("testRecipe2")));
     }

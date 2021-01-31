@@ -1,7 +1,6 @@
 package ravi.hobby.project.cda.dto;
 
 import java.util.List;
-import java.util.stream.Collectors;
 import ravi.hobby.project.cda.model.Recipe;
 
 public class RecipeDTO {
@@ -27,7 +26,7 @@ public class RecipeDTO {
     public Recipe buildRecipe() {
         Recipe recipe = new Recipe();
         recipe.setName(this.name);
-        recipe.setIngredients(this.ingredients.stream().map(IngredientDTO::buildIngredient).collect(Collectors.toList()));
+        this.ingredients.forEach(ingredientDTO -> recipe.addIngredient(ingredientDTO.buildIngredient()));
         recipe.setNotes(this.notes);
         recipe.setServing(this.serving);
         recipe.setRefs(this.refs);
